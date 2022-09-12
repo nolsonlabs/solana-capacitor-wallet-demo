@@ -1,0 +1,56 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div style="padding-left: 4px;">
+        <ion-text color="dark" *ngIf="request.payloadCount === 1"><h2>Sign Transaction</h2></ion-text>
+        <ion-text color="dark" *ngIf="request.payloadCount > 1"><h2>Sign {{ request.payloadCount }} Transactions</h2></ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-card>
+  <ion-card-content class="ion-no-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto" style="margin-top: 8px;">
+          <div>
+            <ion-thumbnail>
+                <img [src]="request.identityUri + '/' + request.iconRelativeUri">
+            </ion-thumbnail>
+          </div>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-text color="dark">Source: {{ request.identityUri }}</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-text color="dark">Scope: {{ request.identityName }}</ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid style="width: 100%">
+    <ion-row>
+      
+      <ion-col>
+        <ion-button color="success" expand="block" (click)="authorize(true)">Authorize</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" expand="block" (click)="authorize(false)">Decline</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  </ion-card-content>
+</ion-card>

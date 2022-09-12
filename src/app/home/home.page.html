@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-avatar slot="start" style ="margin-left: 4px">
+      <img src="../../assets/solana_capacitor.png">
+    </ion-avatar>
     <ion-title>
-      Blank
+      Wallet
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ng-container *ngIf="appState.request$.value">
+    <app-authorize 
+    *ngIf="appState.request$.value.requestType === 'AuthorizeDapp'"
+    [request]="appState.request$.value"
+    (authorizationClick)="authorize($event)"
+    ></app-authorize>
+  <app-sign-message
+    *ngIf="appState.request$.value.requestType === 'SignPayloads'"
+    [request]="appState.request$.value"
+    (authorizationClick)="authorize($event)"
+    ></app-sign-message>
+  <app-sign-transaction
+    *ngIf="appState.request$.value.requestType === 'SignAndSendTransactions'"
+    [request]="appState.request$.value"
+    (authorizationClick)="authorize($event)"
+    ></app-sign-transaction>
+  </ng-container>
 </ion-content>

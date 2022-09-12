@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { AppstateService } from '../services/appstate.service';
+
+import { SolanaMobileWallet } from 'solana-mobile-wallet-capacitor';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +11,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public appState: AppstateService) {}
+
+  authorize(ev) {
+    SolanaMobileWallet.userConfirmation({ authorized: ev });
+  }
 
 }

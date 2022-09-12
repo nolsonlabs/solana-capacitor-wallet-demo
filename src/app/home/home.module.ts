@@ -6,6 +6,9 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { AuthorizeComponent } from '../components/authorize/authorize.component';
+import { SignMessageComponent } from '../components/sign-message/sign-message.component';
+import { SignTransactionComponent } from '../components/sign-transaction/sign-transaction.component';
 
 @NgModule({
   imports: [
@@ -14,6 +17,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,
+                 AuthorizeComponent,
+                 SignMessageComponent,SignTransactionComponent
+                ],
 })
 export class HomePageModule {}
