@@ -12,5 +12,5 @@
     <li>run "ionic build"</li>
     <li>run "npx cap sync"</li>
     <li>run "ionic cap open android to open the project in Android studio</li>
-    <li>deploy to a device to emulator using the standard Android Studio workflow<li>
+    <li>deploy to a device to emulator using the standard Android Studio workflow</li>
 </ul>
